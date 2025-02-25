@@ -31,136 +31,147 @@
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.пользовательToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.войтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ученикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.посмотретьОценкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.расписаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.учительToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ввестиОценкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.планированиеУроковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.администрацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.управлениеКадрамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.аналитикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.системаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.архивированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
-            this.mainMenu.SuspendLayout();
-            this.SuspendLayout();
-
-            
-            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.пользовательToolStripMenuItem,
-                this.ученикToolStripMenuItem,
-                this.учительToolStripMenuItem,
-                this.администрацияToolStripMenuItem,
-                this.системаToolStripMenuItem
-            });
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(800, 24);
-            this.mainMenu.TabIndex = 0;
-            this.mainMenu.Text = "mainMenu";
-
-            
-            this.пользовательToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.войтиToolStripMenuItem,
-                this.выйтиToolStripMenuItem
-            });
-            this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
-            this.пользовательToolStripMenuItem.Text = "Пользователь";
-
-           
-            this.войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
-            this.войтиToolStripMenuItem.Text = "Войти";
-            this.войтиToolStripMenuItem.Click += new System.EventHandler(this.войтиToolStripMenuItem_Click);
-
-            
-            this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
-            this.выйтиToolStripMenuItem.Text = "Выйти";
-            this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
-
-            
-            this.ученикToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.посмотретьОценкиToolStripMenuItem,
-                this.расписаниеToolStripMenuItem
-            });
-            this.ученикToolStripMenuItem.Name = "ученикToolStripMenuItem";
-            this.ученикToolStripMenuItem.Text = "Ученик";
-
-           
-            this.посмотретьОценкиToolStripMenuItem.Name = "посмотретьОценкиToolStripMenuItem";
-            this.посмотретьОценкиToolStripMenuItem.Text = "Посмотреть оценки";
-            this.посмотретьОценкиToolStripMenuItem.Click += new System.EventHandler(this.посмотретьОценкиToolStripMenuItem_Click);
-
-            
-            this.расписаниеToolStripMenuItem.Name = "расписаниеToolStripMenuItem";
-            this.расписаниеToolStripMenuItem.Text = "Расписание";
-            this.расписаниеToolStripMenuItem.Click += new System.EventHandler(this.расписаниеToolStripMenuItem_Click);
-
-            
-            this.учительToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.ввестиОценкиToolStripMenuItem,
-                this.планированиеУроковToolStripMenuItem
-            });
-            this.учительToolStripMenuItem.Name = "учительToolStripMenuItem";
-            this.учительToolStripMenuItem.Text = "Учитель";
-
-            
-            this.ввестиОценкиToolStripMenuItem.Name = "ввестиОценкиToolStripMenuItem";
-            this.ввестиОценкиToolStripMenuItem.Text = "Ввести оценки";
-            this.ввестиОценкиToolStripMenuItem.Click += new System.EventHandler(this.ввестиОценкиToolStripMenuItem_Click);
-
-            
-            this.планированиеУроковToolStripMenuItem.Name = "планированиеУроковToolStripMenuItem";
-            this.планированиеУроковToolStripMenuItem.Text = "Планирование уроков";
-            this.планированиеУроковToolStripMenuItem.Click += new System.EventHandler(this.планированиеУроковToolStripMenuItem_Click);
-
-            
-            this.администрацияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.управлениеКадрамиToolStripMenuItem,
-                this.аналитикаToolStripMenuItem
-            });
-            this.администрацияToolStripMenuItem.Name = "администрацияToolStripMenuItem";
-            this.администрацияToolStripMenuItem.Text = "Администрация";
-
-            
-            this.управлениеКадрамиToolStripMenuItem.Name = "управлениеКадрамиToolStripMenuItem";
-            this.управлениеКадрамиToolStripMenuItem.Text = "Управление кадрами";
-            this.управлениеКадрамиToolStripMenuItem.Click += new System.EventHandler(this.управлениеКадрамиToolStripMenuItem_Click);
-
-            
-            this.аналитикаToolStripMenuItem.Name = "аналитикаToolStripMenuItem";
-            this.аналитикаToolStripMenuItem.Text = "Аналитика";
-            this.аналитикаToolStripMenuItem.Click += new System.EventHandler(this.аналитикаToolStripMenuItem_Click);
-
-            
-            this.системаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.архивированиеToolStripMenuItem
-            });
-            this.системаToolStripMenuItem.Name = "системаToolStripMenuItem";
-            this.системаToolStripMenuItem.Text = "Система";
-
-            
-            this.архивированиеToolStripMenuItem.Name = "архивированиеToolStripMenuItem";
-            this.архивированиеToolStripMenuItem.Text = "Архивирование";
-            this.архивированиеToolStripMenuItem.Click += new System.EventHandler(this.архивированиеToolStripMenuItem_Click);
-
+            mainMenu = new MenuStrip();
+            пользовательToolStripMenuItem = new ToolStripMenuItem();
+            войтиToolStripMenuItem = new ToolStripMenuItem();
+            выйтиToolStripMenuItem = new ToolStripMenuItem();
+            ученикToolStripMenuItem = new ToolStripMenuItem();
+            посмотретьОценкиToolStripMenuItem = new ToolStripMenuItem();
+            расписаниеToolStripMenuItem = new ToolStripMenuItem();
+            учительToolStripMenuItem = new ToolStripMenuItem();
+            ввестиОценкиToolStripMenuItem = new ToolStripMenuItem();
+            планированиеУроковToolStripMenuItem = new ToolStripMenuItem();
+            администрацияToolStripMenuItem = new ToolStripMenuItem();
+            управлениеКадрамиToolStripMenuItem = new ToolStripMenuItem();
+            аналитикаToolStripMenuItem = new ToolStripMenuItem();
+            системаToolStripMenuItem = new ToolStripMenuItem();
+            архивированиеToolStripMenuItem = new ToolStripMenuItem();
+            mainMenu.SuspendLayout();
+            SuspendLayout();
+            // 
+            // mainMenu
+            // 
+            mainMenu.Items.AddRange(new ToolStripItem[] { пользовательToolStripMenuItem, ученикToolStripMenuItem, учительToolStripMenuItem, администрацияToolStripMenuItem, системаToolStripMenuItem });
+            mainMenu.Location = new Point(0, 0);
+            mainMenu.Name = "mainMenu";
+            mainMenu.Padding = new Padding(7, 2, 0, 2);
+            mainMenu.Size = new Size(933, 24);
+            mainMenu.TabIndex = 0;
+            mainMenu.Text = "mainMenu";
+            // 
+            // пользовательToolStripMenuItem
+            // 
+            пользовательToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { войтиToolStripMenuItem, выйтиToolStripMenuItem });
+            пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
+            пользовательToolStripMenuItem.Size = new Size(96, 20);
+            пользовательToolStripMenuItem.Text = "Пользователь";
+            // 
+            // войтиToolStripMenuItem
+            // 
+            войтиToolStripMenuItem.Name = "войтиToolStripMenuItem";
+            войтиToolStripMenuItem.Size = new Size(109, 22);
+            войтиToolStripMenuItem.Text = "Войти";
+            войтиToolStripMenuItem.Click += войтиToolStripMenuItem_Click;
+            // 
+            // выйтиToolStripMenuItem
+            // 
+            выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
+            выйтиToolStripMenuItem.Size = new Size(109, 22);
+            выйтиToolStripMenuItem.Text = "Выйти";
+            выйтиToolStripMenuItem.Click += выйтиToolStripMenuItem_Click;
+            // 
+            // ученикToolStripMenuItem
+            // 
+            ученикToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { посмотретьОценкиToolStripMenuItem, расписаниеToolStripMenuItem });
+            ученикToolStripMenuItem.Name = "ученикToolStripMenuItem";
+            ученикToolStripMenuItem.Size = new Size(59, 20);
+            ученикToolStripMenuItem.Text = "Ученик";
+            // 
+            // посмотретьОценкиToolStripMenuItem
+            // 
+            посмотретьОценкиToolStripMenuItem.Name = "посмотретьОценкиToolStripMenuItem";
+            посмотретьОценкиToolStripMenuItem.Size = new Size(184, 22);
+            посмотретьОценкиToolStripMenuItem.Text = "Посмотреть оценки";
+            посмотретьОценкиToolStripMenuItem.Click += посмотретьОценкиToolStripMenuItem_Click;
+            // 
+            // расписаниеToolStripMenuItem
+            // 
+            расписаниеToolStripMenuItem.Name = "расписаниеToolStripMenuItem";
+            расписаниеToolStripMenuItem.Size = new Size(184, 22);
+            расписаниеToolStripMenuItem.Text = "Расписание";
+            расписаниеToolStripMenuItem.Click += расписаниеToolStripMenuItem_Click;
+            // 
+            // учительToolStripMenuItem
+            // 
+            учительToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ввестиОценкиToolStripMenuItem, планированиеУроковToolStripMenuItem });
+            учительToolStripMenuItem.Name = "учительToolStripMenuItem";
+            учительToolStripMenuItem.Size = new Size(64, 20);
+            учительToolStripMenuItem.Text = "Учитель";
+            // 
+            // ввестиОценкиToolStripMenuItem
+            // 
+            ввестиОценкиToolStripMenuItem.Name = "ввестиОценкиToolStripMenuItem";
+            ввестиОценкиToolStripMenuItem.Size = new Size(198, 22);
+            ввестиОценкиToolStripMenuItem.Text = "Ввести оценки";
+            ввестиОценкиToolStripMenuItem.Click += ввестиОценкиToolStripMenuItem_Click;
+            // 
+            // планированиеУроковToolStripMenuItem
+            // 
+            планированиеУроковToolStripMenuItem.Name = "планированиеУроковToolStripMenuItem";
+            планированиеУроковToolStripMenuItem.Size = new Size(198, 22);
+            планированиеУроковToolStripMenuItem.Text = "Планирование уроков";
+            планированиеУроковToolStripMenuItem.Click += планированиеУроковToolStripMenuItem_Click;
+            // 
+            // администрацияToolStripMenuItem
+            // 
+            администрацияToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { управлениеКадрамиToolStripMenuItem, аналитикаToolStripMenuItem });
+            администрацияToolStripMenuItem.Name = "администрацияToolStripMenuItem";
+            администрацияToolStripMenuItem.Size = new Size(107, 20);
+            администрацияToolStripMenuItem.Text = "Администрация";
+            // 
+            // управлениеКадрамиToolStripMenuItem
+            // 
+            управлениеКадрамиToolStripMenuItem.Name = "управлениеКадрамиToolStripMenuItem";
+            управлениеКадрамиToolStripMenuItem.Size = new Size(190, 22);
+            управлениеКадрамиToolStripMenuItem.Text = "Управление кадрами";
+            управлениеКадрамиToolStripMenuItem.Click += управлениеКадрамиToolStripMenuItem_Click;
+            // 
+            // аналитикаToolStripMenuItem
+            // 
+            аналитикаToolStripMenuItem.Name = "аналитикаToolStripMenuItem";
+            аналитикаToolStripMenuItem.Size = new Size(190, 22);
+            аналитикаToolStripMenuItem.Text = "Аналитика";
+            аналитикаToolStripMenuItem.Click += аналитикаToolStripMenuItem_Click;
+            // 
+            // системаToolStripMenuItem
+            // 
+            системаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { архивированиеToolStripMenuItem });
+            системаToolStripMenuItem.Name = "системаToolStripMenuItem";
+            системаToolStripMenuItem.Size = new Size(66, 20);
+            системаToolStripMenuItem.Text = "Система";
+            // 
+            // архивированиеToolStripMenuItem
+            // 
+            архивированиеToolStripMenuItem.Name = "архивированиеToolStripMenuItem";
+            архивированиеToolStripMenuItem.Size = new Size(161, 22);
+            архивированиеToolStripMenuItem.Text = "Архивирование";
+            архивированиеToolStripMenuItem.Click += архивированиеToolStripMenuItem_Click;
+            // 
             // Form1
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.mainMenu);
-            this.MainMenuStrip = this.mainMenu;
-            this.Name = "Form1";
-            this.Text = "Электронный дневник школьника";
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(933, 519);
+            Controls.Add(mainMenu);
+            MainMenuStrip = mainMenu;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Form1";
+            Text = "Электронный дневник школьника";
+            Load += Form1_Load;
+            mainMenu.ResumeLayout(false);
+            mainMenu.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

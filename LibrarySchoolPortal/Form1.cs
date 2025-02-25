@@ -1,16 +1,26 @@
-﻿namespace LibrarySchoolPortal
+﻿using System;
+using System.Windows.Forms;
+
+namespace LibrarySchoolPortal
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
         public Form1()
         {
             InitializeComponent();
+            using (var db = new SchoolContext())
+            {
+                db.Database.EnsureCreated(); 
+            }
         }
 
         private void войтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form loginForm = new Form { Text = "Вход в систему" };
-            loginForm.ShowDialog();
+            LoginForm loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show($"Добро пожаловать, {loginForm.UserName} ({loginForm.UserRole})!");
+            }
         }
 
         private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -20,7 +30,7 @@
 
         private void посмотретьОценкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form gradesForm = new Form { Text = "Оценки" };
+            GradesForm gradesForm = new GradesForm();
             gradesForm.Show();
         }
 
@@ -44,8 +54,8 @@
 
         private void управлениеКадрамиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form staffForm = new Form { Text = "Кадры" };
-            staffForm.Show();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
         }
 
         private void аналитикаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,6 +67,10 @@
         private void архивированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Архивирование запущено");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
     }
 }
