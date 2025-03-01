@@ -1,6 +1,6 @@
 ﻿namespace LibrarySchoolPortal
 {
-    partial class UsersForm
+    partial class StudentsForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -47,7 +47,7 @@
             this.buttonSaveUsers.Text = "Сохранить";
             this.buttonSaveUsers.UseVisualStyleBackColor = true;
             // 
-            // UsersForm
+            // StudentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -55,8 +55,8 @@
             this.Controls.Add(this.buttonSaveUsers);
             this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.dataGridViewUsers);
-            this.Name = "UsersForm";
-            this.Text = "Управление пользователями";
+            this.Name = "StudentsForm";
+            this.Text = "Управление учениками";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
         }
