@@ -13,16 +13,16 @@ namespace LibrarySchoolPortal
             {
                 using (var db = new SchoolContext())
                 {
-                    db.Database.EnsureCreated(); 
-
-                    
+                    db.Database.EnsureCreated();
                     if (!db.Classes.Any())
                     {
+                        // Классы
                         var class5A = new Class { Name = "5А" };
                         var class6B = new Class { Name = "6Б" };
                         db.Classes.AddRange(class5A, class6B);
                         db.SaveChanges();
 
+                        // Учителя
                         var teacher1 = new Teacher { Name = "Анна Петровна" };
                         var teacher2 = new Teacher { Name = "Игорь Васильевич" };
                         teacher1.Classes.Add(class5A);
@@ -30,21 +30,25 @@ namespace LibrarySchoolPortal
                         db.Teachers.AddRange(teacher1, teacher2);
                         db.SaveChanges();
 
+                        // Ученики
                         var student1 = new Student { Name = "Иван Иванов", ClassId = class5A.Id };
                         var student2 = new Student { Name = "Мария Сидорова", ClassId = class6B.Id };
                         db.Students.AddRange(student1, student2);
                         db.SaveChanges();
 
+                        // Родители
                         var parent1 = new Parent { Name = "Ольга Иванова", StudentId = student1.Id };
                         var parent2 = new Parent { Name = "Пётр Сидоров", StudentId = student2.Id };
                         db.Parents.AddRange(parent1, parent2);
                         db.SaveChanges();
 
+                        // Предметы
                         var subject1 = new Subject { Name = "Математика" };
                         var subject2 = new Subject { Name = "Русский язык" };
                         db.Subjects.AddRange(subject1, subject2);
                         db.SaveChanges();
 
+                        // Оценки
                         var grade1 = new Grade
                         {
                             StudentId = student1.Id,
@@ -62,7 +66,45 @@ namespace LibrarySchoolPortal
                         db.Grades.AddRange(grade1, grade2);
                         db.SaveChanges();
 
-                        
+                        // Расписание уроков
+                        var schedule1 = new Schedule
+                        {
+                            ClassId = class5A.Id,
+                            TeacherId = teacher1.Id,
+                            SubjectId = subject1.Id,
+                            Date = DateTime.Now,
+                            LessonTime = "08:00-08:45"
+                        };
+                        var schedule2 = new Schedule
+                        {
+                            ClassId = class6B.Id,
+                            TeacherId = teacher2.Id,
+                            SubjectId = subject2.Id,
+                            Date = DateTime.Now.AddDays(1),
+                            LessonTime = "09:00-09:45"
+                        };
+                        db.Schedules.AddRange(schedule1, schedule2);
+                        db.SaveChanges();
+
+                        // Расписание тестов
+                        var test1 = new TestSchedule
+                        {
+                            ClassId = class5A.Id,
+                            SubjectId = subject1.Id,
+                            Date = DateTime.Now.AddDays(2),
+                            TestType = "Контрольная"
+                        };
+                        var test2 = new TestSchedule
+                        {
+                            ClassId = class6B.Id,
+                            SubjectId = subject2.Id,
+                            Date = DateTime.Now.AddDays(3),
+                            TestType = "Самостоятельная"
+                        };
+                        db.TestSchedules.AddRange(test1, test2);
+                        db.SaveChanges();
+
+                        MessageBox.Show("База данных создана и заполнена начальными данными.");
                     }
                 }
             }
@@ -94,8 +136,8 @@ namespace LibrarySchoolPortal
 
         private void расписаниеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClassesForm classesForm = new ClassesForm();
-            classesForm.Show();
+            ScheduleForm scheduleForm = new ScheduleForm();
+            scheduleForm.Show();
         }
 
         private void ввестиОценкиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,8 +148,8 @@ namespace LibrarySchoolPortal
 
         private void планированиеУроковToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SubjectsForm subjectsForm = new SubjectsForm();
-            subjectsForm.Show();
+            TestsScheduleForm testsScheduleForm = new TestsScheduleForm();
+            testsScheduleForm.Show();
         }
 
         private void управлениеКадрамиToolStripMenuItem_Click(object sender, EventArgs e)
