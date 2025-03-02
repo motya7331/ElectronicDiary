@@ -31,19 +31,14 @@ namespace LibrarySchoolPortal
 
         private void buttonAdd_Click(object? sender, EventArgs e)
         {
-            
-            var student = db.Students.FirstOrDefault();
-            if (student == null)
-            {
-                student = new Student { Name = "Иван Иванов" };
-                db.Students.Add(student);
-                db.SaveChanges(); 
-            }
+            var student = db.Students.FirstOrDefault() ?? new Student { Name = "Иван Иванов" };
+            if (!db.Students.Any()) db.Students.Add(student);
+            db.SaveChanges();
 
             var parent = new Parent
             {
                 Name = "Новый родитель",
-                StudentId = student.Id 
+                StudentId = student.Id
             };
             db.Parents.Add(parent);
             db.SaveChanges();

@@ -1,6 +1,6 @@
 ﻿namespace LibrarySchoolPortal
 {
-    public class Grade
+    public class CurrentGrade
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
@@ -9,5 +9,6 @@
         public Subject? Subject { get; set; }
         public int Value { get; set; }
         public DateTime Date { get; set; }
+        public string? Topic { get; set; } // Тема урока
     }
 }

@@ -4,27 +4,28 @@ using System.Windows.Forms;
 
 namespace LibrarySchoolPortal
 {
-    public partial class GradesForm : Form
+    public partial class TestGradesForm : Form
     {
         private SchoolContext db;
 
-        public GradesForm()
+        public TestGradesForm()
         {
             InitializeComponent();
             db = new SchoolContext();
-            LoadGrades();
+            LoadTestGrades();
             buttonAdd.Click += buttonAdd_Click;
             buttonSave.Click += buttonSave_Click;
         }
 
-        private void LoadGrades()
+        private void LoadTestGrades()
         {
-            dataGridViewGrades.DataSource = db.Grades
+            dataGridViewTestGrades.DataSource = db.TestGrades
                 .Select(g => new
                 {
                     g.Id,
                     StudentName = g.Student != null ? g.Student.Name ?? "Без имени" : "Нет ученика",
-                    SubjectName = g.Subject != null ? g.Subject.Name ?? "Без предмета" : "Нет предмета",
+                    TestType = g.TestSchedule != null ? g.TestSchedule.TestType ?? "Без типа" : "Нет теста",
+                    SubjectName = g.TestSchedule != null && g.TestSchedule.Subject != null ? g.TestSchedule.Subject.Name ?? "Без имени" : "Нет предмета",
                     g.Value,
                     g.Date
                 })
@@ -34,27 +35,33 @@ namespace LibrarySchoolPortal
         private void buttonAdd_Click(object? sender, EventArgs e)
         {
             var student = db.Students.FirstOrDefault() ?? new Student { Name = "Иван Иванов" };
-            var subject = db.Subjects.FirstOrDefault() ?? new Subject { Name = "Математика" };
+            var testSchedule = db.TestSchedules.FirstOrDefault() ?? new TestSchedule
+            {
+                ClassId = db.Classes.FirstOrDefault()?.Id ?? 1,
+                SubjectId = db.Subjects.FirstOrDefault()?.Id ?? 1,
+                Date = DateTime.Now,
+                TestType = "Контрольная"
+            };
             if (!db.Students.Any()) db.Students.Add(student);
-            if (!db.Subjects.Any()) db.Subjects.Add(subject);
+            if (!db.TestSchedules.Any()) db.TestSchedules.Add(testSchedule);
             db.SaveChanges();
 
-            var grade = new Grade
+            var testGrade = new TestGrade
             {
                 StudentId = student.Id,
-                SubjectId = subject.Id,
-                Value = 5,
-                Date = DateTime.Now
+                TestScheduleId = testSchedule.Id,
+                Value = 4,
+                Date = testSchedule.Date
             };
-            db.Grades.Add(grade);
+            db.TestGrades.Add(testGrade);
             db.SaveChanges();
-            LoadGrades();
+            LoadTestGrades();
         }
 
         private void buttonSave_Click(object? sender, EventArgs e)
         {
             db.SaveChanges();
-            LoadGrades();
+            LoadTestGrades();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

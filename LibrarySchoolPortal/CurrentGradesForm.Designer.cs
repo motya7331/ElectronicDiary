@@ -1,6 +1,6 @@
 ﻿namespace LibrarySchoolPortal
 {
-    partial class GradesForm
+    partial class CurrentGradesForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -15,19 +15,19 @@
 
         private void InitializeComponent()
         {
-            this.dataGridViewGrades = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCurrentGrades = new System.Windows.Forms.DataGridView();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCurrentGrades)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewGrades
+            // dataGridViewCurrentGrades
             // 
-            this.dataGridViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGrades.Location = new System.Drawing.Point(12, 12);
-            this.dataGridViewGrades.Name = "dataGridViewGrades";
-            this.dataGridViewGrades.Size = new System.Drawing.Size(560, 300);
-            this.dataGridViewGrades.TabIndex = 0;
+            this.dataGridViewCurrentGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCurrentGrades.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewCurrentGrades.Name = "dataGridViewCurrentGrades";
+            this.dataGridViewCurrentGrades.Size = new System.Drawing.Size(560, 300);
+            this.dataGridViewCurrentGrades.TabIndex = 0;
             // 
             // buttonAdd
             // 
@@ -47,21 +47,21 @@
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             // 
-            // GradesForm
+            // CurrentGradesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.dataGridViewGrades);
-            this.Name = "GradesForm";
-            this.Text = "Оценки";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrades)).EndInit();
+            this.Controls.Add(this.dataGridViewCurrentGrades);
+            this.Name = "CurrentGradesForm";
+            this.Text = "Текущие оценки";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCurrentGrades)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.DataGridView dataGridViewGrades;
+        private System.Windows.Forms.DataGridView dataGridViewCurrentGrades;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonSave;
     }
