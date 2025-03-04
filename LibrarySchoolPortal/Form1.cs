@@ -16,7 +16,6 @@ namespace LibrarySchoolPortal
                     db.Database.EnsureCreated();
                     if (!db.Classes.Any())
                     {
-                        // Классы
                         var class5A = new Class { Name = "5А" };
                         var class5B = new Class { Name = "5Б" };
                         var class6A = new Class { Name = "6А" };
@@ -24,7 +23,6 @@ namespace LibrarySchoolPortal
                         db.Classes.AddRange(class5A, class5B, class6A, class6B);
                         db.SaveChanges();
 
-                        // Учителя
                         var teacher1 = new Teacher { Name = "Анна Петровна" };
                         var teacher2 = new Teacher { Name = "Игорь Васильевич" };
                         var teacher3 = new Teacher { Name = "Елена Сергеевна" };
@@ -36,7 +34,6 @@ namespace LibrarySchoolPortal
                         db.Teachers.AddRange(teacher1, teacher2, teacher3);
                         db.SaveChanges();
 
-                        // Ученики
                         var student1 = new Student { Name = "Иван Иванов", ClassId = class5A.Id };
                         var student2 = new Student { Name = "Мария Сидорова", ClassId = class6B.Id };
                         var student3 = new Student { Name = "Алексей Петров", ClassId = class5B.Id };
@@ -45,7 +42,6 @@ namespace LibrarySchoolPortal
                         db.Students.AddRange(student1, student2, student3, student4, student5);
                         db.SaveChanges();
 
-                        // Родители
                         var parent1 = new Parent { Name = "Ольга Иванова", StudentId = student1.Id };
                         var parent2 = new Parent { Name = "Пётр Сидоров", StudentId = student2.Id };
                         var parent3 = new Parent { Name = "Наталья Петрова", StudentId = student3.Id };
@@ -54,7 +50,6 @@ namespace LibrarySchoolPortal
                         db.Parents.AddRange(parent1, parent2, parent3, parent4, parent5);
                         db.SaveChanges();
 
-                        // Предметы
                         var subject1 = new Subject { Name = "Математика" };
                         var subject2 = new Subject { Name = "Русский язык" };
                         var subject3 = new Subject { Name = "Физика" };
@@ -62,7 +57,6 @@ namespace LibrarySchoolPortal
                         db.Subjects.AddRange(subject1, subject2, subject3, subject4);
                         db.SaveChanges();
 
-                        // Расписание уроков
                         var schedule1 = new Schedule
                         {
                             ClassId = class5A.Id,
@@ -98,7 +92,6 @@ namespace LibrarySchoolPortal
                         db.Schedules.AddRange(schedule1, schedule2, schedule3, schedule4);
                         db.SaveChanges();
 
-                        // Расписание тестов
                         var test1 = new TestSchedule
                         {
                             ClassId = class5A.Id,
@@ -130,7 +123,6 @@ namespace LibrarySchoolPortal
                         db.TestSchedules.AddRange(test1, test2, test3, test4);
                         db.SaveChanges();
 
-                        // Текущие оценки
                         var currentGrade1 = new CurrentGrade
                         {
                             StudentId = student1.Id,
@@ -174,7 +166,6 @@ namespace LibrarySchoolPortal
                         db.CurrentGrades.AddRange(currentGrade1, currentGrade2, currentGrade3, currentGrade4, currentGrade5);
                         db.SaveChanges();
 
-                        // Оценки за тесты
                         var testGrade1 = new TestGrade
                         {
                             StudentId = student1.Id,
@@ -267,8 +258,8 @@ namespace LibrarySchoolPortal
 
         private void аналитикаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ParentsForm parentsForm = new ParentsForm();
-            parentsForm.Show();
+            StudentSearchForm searchForm = new StudentSearchForm(); 
+            searchForm.Show();
         }
 
         private void архивированиеToolStripMenuItem_Click(object sender, EventArgs e)
