@@ -4,16 +4,27 @@ using System.Windows.Forms;
 
 namespace LibrarySchoolPortal
 {
-    public partial class Form1 : System.Windows.Forms.Form
+    public partial class Form1 : Form
     {
-        public Form1()
+        private string currentUserRole; 
+
+        public Form1() 
         {
             InitializeComponent();
+            DisableMenuItems();
+            InitializeDatabase(); 
+            ShowLoginForm();      
+        }
+
+        private void InitializeDatabase() 
+        {
             try
             {
                 using (var db = new SchoolContext())
                 {
-                    db.Database.EnsureCreated();
+                    db.Database.EnsureDeleted(); 
+                    db.Database.EnsureCreated(); 
+
                     if (!db.Classes.Any())
                     {
                         var class5A = new Class { Name = "5А" };
@@ -204,6 +215,16 @@ namespace LibrarySchoolPortal
                         db.TestGrades.AddRange(testGrade1, testGrade2, testGrade3, testGrade4, testGrade5);
                         db.SaveChanges();
                     }
+
+                    if (!db.Users.Any())
+                    {
+                        var user1 = new User { Login = "ivan", Password = "123", Role = "Student" };
+                        var user2 = new User { Login = "olga", Password = "123", Role = "Parent" };
+                        var user3 = new User { Login = "anna", Password = "123", Role = "Teacher" };
+                        var user4 = new User { Login = "admin", Password = "admin", Role = "Admin" };
+                        db.Users.AddRange(user1, user2, user3, user4);
+                        db.SaveChanges();
+                    }
                 }
             }
             catch (Exception ex)
@@ -212,18 +233,78 @@ namespace LibrarySchoolPortal
             }
         }
 
-        private void войтиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowLoginForm()
         {
             LoginForm loginForm = new LoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show($"Добро пожаловать, {loginForm.UserName} ({loginForm.UserRole})!");
+                currentUserRole = loginForm.UserRole;
+                EnableMenuItemsByRole();
             }
+            else
+            {
+                Close();
+            }
+        }
+
+        private void DisableMenuItems() 
+        {
+            посмотретьОценкиToolStripMenuItem.Enabled = false;
+            расписаниеToolStripMenuItem.Enabled = false;
+            ввестиОценкиToolStripMenuItem.Enabled = false;
+            планированиеУроковToolStripMenuItem.Enabled = false;
+            управлениеКадрамиToolStripMenuItem.Enabled = false;
+            аналитикаToolStripMenuItem.Enabled = false;
+            архивированиеToolStripMenuItem.Enabled = false;
+            выйтиToolStripMenuItem.Enabled = false;
+        }
+
+        private void EnableMenuItemsByRole()
+        {
+            switch (currentUserRole)
+            {
+                case "Student":
+                    посмотретьОценкиToolStripMenuItem.Enabled = true;
+                    расписаниеToolStripMenuItem.Enabled = true;
+                    выйтиToolStripMenuItem.Enabled = true;
+                    break;
+                case "Parent":
+                    посмотретьОценкиToolStripMenuItem.Enabled = true;
+                    расписаниеToolStripMenuItem.Enabled = true;
+                    аналитикаToolStripMenuItem.Enabled = true;
+                    выйтиToolStripMenuItem.Enabled = true;
+                    break;
+                case "Teacher":
+                    посмотретьОценкиToolStripMenuItem.Enabled = true;
+                    расписаниеToolStripMenuItem.Enabled = true;
+                    ввестиОценкиToolStripMenuItem.Enabled = true;
+                    планированиеУроковToolStripMenuItem.Enabled = true;
+                    архивированиеToolStripMenuItem.Enabled = true;
+                    выйтиToolStripMenuItem.Enabled = true;
+                    break;
+                case "Admin":
+                    посмотретьОценкиToolStripMenuItem.Enabled = true;
+                    расписаниеToolStripMenuItem.Enabled = false;
+                    ввестиОценкиToolStripMenuItem.Enabled = true;
+                    планированиеУроковToolStripMenuItem.Enabled = true;
+                    управлениеКадрамиToolStripMenuItem.Enabled = true;
+                    аналитикаToolStripMenuItem.Enabled = true;
+                    архивированиеToolStripMenuItem.Enabled = true;
+                    выйтиToolStripMenuItem.Enabled = true;
+                    break;
+            }
+        }
+
+        private void войтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowLoginForm();
         }
 
         private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            currentUserRole = null;
+            DisableMenuItems();
+            ShowLoginForm();
         }
 
         private void посмотретьОценкиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -258,7 +339,7 @@ namespace LibrarySchoolPortal
 
         private void аналитикаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StudentSearchForm searchForm = new StudentSearchForm(); 
+            StudentSearchForm searchForm = new StudentSearchForm();
             searchForm.Show();
         }
 

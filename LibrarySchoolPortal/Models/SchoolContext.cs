@@ -13,6 +13,7 @@ namespace LibrarySchoolPortal
         public DbSet<TestSchedule> TestSchedules { get; set; }
         public DbSet<CurrentGrade> CurrentGrades { get; set; }
         public DbSet<TestGrade> TestGrades { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
